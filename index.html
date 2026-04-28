@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeatFlow — Assignment 4</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+    <!-- ── TOP NAV ── -->
+    <nav class="top-nav">
+        <div class="nav-logo">
+            <span class="logo-icon">🎵</span>
+            <span class="logo-text">BeatFlow</span>
+            <span class="logo-tag">Internal Tools</span>
+        </div>
+        <div class="nav-alert">
+            ⚠️ Company-wide restructuring in progress — All teams on notice
+        </div>
+        <div class="nav-user">👤 You</div>
+    </nav>
+
+    <!-- ── MAIN LAYOUT ── -->
+    <div class="main-layout">
+
+        <!-- ════ SIDEBAR ════ -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-title">Your Library</div>
+                <div class="track-list" id="trackList">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Stats</div>
+                <div class="stat-row">
+                    <span class="stat-label">Tracks Loaded</span>
+                    <span class="stat-val" id="trackCount">0</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Now Playing</span>
+                    <span class="stat-val" id="nowPlayingName">—</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Genre</span>
+                    <span class="stat-val" id="nowPlayingGenre">—</span>
+                </div>
+            </div>
+
+            <!-- PART 3: Playlist section (populated by JS) -->
+            <div class="sidebar-section">
+                <div class="sidebar-title">Playlists</div>
+                <div id="playlistList">
+                    <div class="empty-msg">No playlists yet.</div>
+                </div>
+                <button class="small-btn" id="createPlaylistBtn">+ New Playlist</button>
+            </div>
+        </aside>
+
+        <!-- ════ MAIN AREA ════ -->
+        <main class="main-area">
+
+            <!-- Player Card -->
+            <div class="player-card" id="playerCard">
+                <div class="player-art" id="playerArt">
+                    <span class="art-placeholder">🎵</span>
+                </div>
+                <div class="player-info">
+                    <div class="player-track-name" id="playerTrackName">Select a track</div>
+                    <div class="player-artist" id="playerArtist">— —</div>
+                    <div class="player-genre-badge" id="playerGenre"></div>
+                </div>
+                <div class="player-controls">
+                    <button class="ctrl-btn" id="prevBtn">⏮</button>
+                    <button class="ctrl-btn play-btn" id="playBtn">▶</button>
+                    <button class="ctrl-btn" id="nextBtn">⏭</button>
+                </div>
+                <div class="volume-row">
+                    <span>🔈</span>
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.7" class="volume-slider">
+                    <span>🔊</span>
+                    <span class="vol-pct" id="volPct">70%</span>
+                </div>
+                <!-- Hidden audio element -->
+                <audio id="audioPlayer"></audio>
+            </div>
+
+            <!-- Status / Log Panel -->
+            <div class="log-panel">
+                <div class="log-header">
+                    <span>📋 Activity Log</span>
+                    <button class="clear-btn" id="clearLogBtn">Clear</button>
+                </div>
+                <div class="log-entries" id="logEntries">
+                    <div class="log-placeholder">Events will appear here as you interact with the player.</div>
+                </div>
+            </div>
+
+        </main>
+
+    </div><!-- /main-layout -->
+</div><!-- /app-shell -->
+
+<script src="app.js"></script>
+</body>
+</html>
